@@ -749,7 +749,10 @@
     <!-- Featured Categories -->
     <section class="categories">
         <div class="container">
-            <h2>Shop by Category</h2>
+            <div class="section-header">
+                <h2 class="gradient-text">Shop by Category</h2>
+                <p>Discover our carefully curated selection of premium spices, organized by type for easy browsing</p>
+            </div>
             <div class="category-grid">
                 <a href="products.html?category=whole" class="category-card">
                     <img src="images/categories/whole-spices.jpg" alt="Whole Spices" onerror="this.src='images/spices/turmeric.jpg'">
@@ -774,12 +777,16 @@
     <!-- Featured Products -->
     <section class="featured-products">
         <div class="container">
-            <h2>Featured Products</h2>
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <p>Hand-picked premium spices that our customers love most</p>
+            </div>
             <div class="products-grid">
                 <!-- Product Card -->
-                <div class="product-card">
+                <div class="product-card scroll-animate hover-lift">
                     <div class="product-image">
                         <img src="images/spices/turmeric.jpg" alt="Premium Turmeric">
+                        <div class="product-badge">Best Seller</div>
                         <div class="product-actions">
                             <button class="quick-view"><i class="fas fa-eye"></i></button>
                             <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -796,9 +803,10 @@
                 </div>
 
                 <!-- Product Card -->
-                <div class="product-card">
+                <div class="product-card scroll-animate hover-lift">
                     <div class="product-image">
                         <img src="images/spices/cinnamon.jpg" alt="Ceylon Cinnamon">
+                        <div class="product-badge">Premium</div>
                         <div class="product-actions">
                             <button class="quick-view"><i class="fas fa-eye"></i></button>
                             <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -859,7 +867,10 @@
     <!-- Why Choose Us -->
     <section class="why-choose-us">
         <div class="container">
-            <h2>Why Choose Deli Spi?</h2>
+            <div class="section-header">
+                <h2>Why Choose Deli Spi?</h2>
+                <p>We're committed to bringing you the finest spices with unmatched quality and service</p>
+            </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <i class="fas fa-leaf"></i>
@@ -960,11 +971,53 @@
     <script src="js/cart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Add to cart functionality
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for scroll animations
+            document.querySelectorAll('.scroll-animate').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Header scroll effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Add scroll animation classes to elements
+            document.querySelectorAll('.category-card, .product-card, .feature-card').forEach((el, index) => {
+                el.classList.add('scroll-animate');
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Add to cart functionality with animation
             const addToCartButtons = document.querySelectorAll('.add-to-cart');
             
             addToCartButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Add loading state
+                    const originalText = this.textContent;
+                    this.textContent = 'Adding...';
+                    this.style.background = 'var(--success-color)';
+                    
                     const productCard = this.closest('.product-card');
                     const product = {
                         id: productCard.dataset.id,
@@ -973,8 +1026,20 @@
                         image: productCard.querySelector('.product-image img').src
                     };
                     
-                    cart.addItem(product);
-                    alert(`${product.name} added to cart! Price: ₹${product.price}`);
+                    // Simulate async operation
+                    setTimeout(() => {
+                        cart.addItem(product);
+                        this.textContent = 'Added!';
+                        
+                        // Show success notification
+                        showNotification(`${product.name} added to cart!`, 'success');
+                        
+                        // Reset button after delay
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                            this.style.background = '';
+                        }, 1500);
+                    }, 500);
                 });
             });
 
@@ -986,7 +1051,7 @@
                 navLinks.classList.toggle('active');
             });
             
-            // Testimonial slider functionality
+            // Enhanced testimonial slider
             const testimonials = [
                 {
                     quote: "The quality of spices from Deli Spi is exceptional. I can really taste the difference in my cooking compared to store-bought spices. Their turmeric has such vibrant color and aroma!",
@@ -1013,16 +1078,24 @@
             
             function showTestimonial(index) {
                 const testimonial = testimonials[index];
-                testimonialContainer.innerHTML = `
-                    <p>${testimonial.quote}</p>
-                    <div class="testimonial-author">
-                        <img src="${testimonial.image}" alt="${testimonial.name}">
-                        <div class="author-info">
-                            <h4>${testimonial.name}</h4>
-                            <p>${testimonial.role}</p>
+                testimonialContainer.style.opacity = '0';
+                testimonialContainer.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    testimonialContainer.innerHTML = `
+                        <p>${testimonial.quote}</p>
+                        <div class="testimonial-author">
+                            <img src="${testimonial.image}" alt="${testimonial.name}">
+                            <div class="author-info">
+                                <h4>${testimonial.name}</h4>
+                                <p>${testimonial.role}</p>
+                            </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                    
+                    testimonialContainer.style.opacity = '1';
+                    testimonialContainer.style.transform = 'translateY(0)';
+                }, 300);
             }
             
             // Rotate testimonials every 5 seconds
@@ -1031,6 +1104,46 @@
                 currentTestimonial = (currentTestimonial + 1) % testimonials.length;
                 showTestimonial(currentTestimonial);
             }, 5000);
+
+            // Notification system
+            function showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <span>${message}</span>
+                        <button class="notification-close">&times;</button>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Animate in
+                setTimeout(() => notification.classList.add('show'), 100);
+                
+                // Auto remove
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+                
+                // Manual close
+                notification.querySelector('.notification-close').addEventListener('click', () => {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                });
+            }
+
+            // Add hover effects to interactive elements
+            document.querySelectorAll('.product-card, .category-card, .feature-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
         });
     </script>
 </body>
