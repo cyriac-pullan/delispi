@@ -244,13 +244,15 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
     <script src="js/cart.js"></script>
+    <script src="api.js"></script>
+    <script src="auth-modal.js"></script>
+    <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Add to cart functionality
             const addToCartButtons = document.querySelectorAll('.add-to-cart');
-            
+
             addToCartButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const productCard = this.closest('.product-card');
@@ -260,7 +262,7 @@
                         price: parseFloat(productCard.querySelector('.current-price').textContent.replace('₹', '')),
                         image: productCard.querySelector('.product-image img').src
                     };
-                    
+
                     cart.addItem(product);
                     alert(`${product.name} added to cart! Price: ₹${product.price}`);
                 });
@@ -269,7 +271,7 @@
             // Mobile menu toggle
             const mobileMenuBtn = document.querySelector('.mobile-menu');
             const navLinks = document.querySelector('.nav-links');
-            
+
             mobileMenuBtn.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
             });

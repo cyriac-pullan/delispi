@@ -99,61 +99,118 @@ document.addEventListener('DOMContentLoaded', function() {
         return '₹' + price.toLocaleString('en-IN');
     }
     
-    // Product Data
-    const products = [
-        {
-            id: 1,
-            name: 'Organic Turmeric Powder',
-            price: 5.99,
-            originalPrice: 7.99,
-            image: 'images/spices/turmeric.jpg',
-            category: 'ground',
-            rating: 4.5,
-            reviews: 42,
-            description: 'Premium organic turmeric powder sourced from India. Rich in curcumin with vibrant color and earthy aroma.',
-            variations: {
-                size: [
-                    { value: '50g', price: 5.99 },
-                    { value: '100g', price: 10.99 },
-                    { value: '250g', price: 24.99 }
-                ]
-            }
-        },
-        {
-            id: 2,
-            name: 'Ceylon Cinnamon Sticks',
-            price: 8.49,
-            image: 'images/spices/cinnamon.jpg',
-            category: 'whole',
-            rating: 4.0,
-            reviews: 36,
-            description: 'Authentic Ceylon cinnamon sticks with sweet and delicate flavor. Perfect for teas and desserts.',
-            variations: {
-                size: [
-                    { value: '50g', price: 8.49 },
-                    { value: '100g', price: 15.99 },
-                    { value: '250g', price: 35.99 }
-                ]
-            }
-        },
-        {
-            id: 3,
-            name: 'Green Cardamom Pods',
-            price: 12.99,
-            image: 'images/spices/cardamom.jpg',
-            category: 'whole',
-            rating: 5.0,
-            reviews: 28,
-            description: 'Premium green cardamom pods with intense aroma and flavor. Essential for Indian and Middle Eastern cuisine.',
-            variations: {
-                size: [
-                    { value: '50g', price: 12.99 },
-                    { value: '100g', price: 24.99 },
-                    { value: '250g', price: 59.99 }
-                ]
-            }
+    // Product Data - will be loaded from database
+    let products = [];
+    
+    // Load products from database
+    async function loadProducts() {
+        try {
+            products = await api.getProducts();
+            console.log('Products loaded:', products);
+            
+            // Update product displays on page
+            updateProductDisplays();
+        } catch (error) {
+            console.error('Error loading products:', error);
+            // Fallback to static data if API fails
+            products = [
+                {
+                    id: 1,
+                    name: 'Organic Turmeric Powder',
+                    price: 249,
+                    image: '/images/spices/turmeric.jpg',
+                    category: 'Ground Spices',
+                    description: 'Premium organic turmeric powder sourced from India.'
+                },
+                {
+                    id: 2,
+                    name: 'Ceylon Cinnamon Sticks',
+                    price: 399,
+                    image: '/images/spices/cinnamon.jpg',
+                    category: 'Whole Spices',
+                    description: 'Authentic Ceylon cinnamon sticks with sweet flavor.'
+                },
+                {
+                    id: 3,
+                    name: 'Green Cardamom Pods',
+                    price: 499,
+                    image: '/images/spices/cardamom.jpg',
+                    category: 'Whole Spices',
+                    description: 'Premium green cardamom pods with intense aroma.'
+                }
+            ];
         }
-    ];
+    }
+    
+    // Update product displays
+    function updateProductDisplays() {
+        // Update featured products section if it exists
+        const featuredProductsContainer = document.querySelector('.featured-products .products-grid');
+        if (featuredProductsContainer && products.length > 0) {
+            featuredProductsContainer.innerHTML = '';
+            
+            // Show first 6 products as featured
+            products.slice(0, 6).forEach(product => {
+                const productCard = createProductCard(product);
+                featuredProductsContainer.appendChild(productCard);
+            });
+        }
+        
+        // Update products page if it exists
+        const productsContainer = document.querySelector('.products-container .products-grid');
+        if (productsContainer && products.length > 0) {
+            productsContainer.innerHTML = '';
+            
+            products.forEach(product => {
+                const productCard = createProductCard(product);
+                productsContainer.appendChild(productCard);
+            });
+        }
+    }
+    
+    // Create product card HTML
+    function createProductCard(product) {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.dataset.id = product.id;
+        
+        card.innerHTML = `
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+                <div class="product-overlay">
+                    <button class="quick-view" onclick="showQuickView(${product.id})">
+                        <i class="fas fa-eye"></i> Quick View
+                    </button>
+                    <button class="add-to-wishlist" onclick="toggleWishlist(${product.id})">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <div class="product-category">${product.category}</div>
+                <h3 class="product-name">${product.name}</h3>
+                <p class="product-description">${product.description}</p>
+                <div class="product-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="rating-count">(4.5)</span>
+                </div>
+                <div class="product-price">
+                    <span class="current-price">₹${product.price}</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(${product.id})">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+        `;
+        
+        return card;
+    }
     
     // Cart Functionality
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -410,16 +467,23 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(style);
     
     // Initialize
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
         updateCart();
         
-        // Add event listeners for product cards
+        // Load products from database
+        await loadProducts();
+        
+        // Add event listeners for existing product cards
         document.querySelectorAll('.product-card').forEach(card => {
             const productId = parseInt(card.dataset.id);
             
-            card.querySelector('.quick-view').onclick = () => showQuickView(productId);
-            card.querySelector('.add-to-wishlist').onclick = () => toggleWishlist(productId);
-            card.querySelector('.add-to-cart').onclick = () => addToCart(productId);
+            const quickViewBtn = card.querySelector('.quick-view');
+            const wishlistBtn = card.querySelector('.add-to-wishlist');
+            const addToCartBtn = card.querySelector('.add-to-cart');
+            
+            if (quickViewBtn) quickViewBtn.onclick = () => showQuickView(productId);
+            if (wishlistBtn) wishlistBtn.onclick = () => toggleWishlist(productId);
+            if (addToCartBtn) addToCartBtn.onclick = () => addToCart(productId);
         });
     });
 });

@@ -1,82 +1,3 @@
-// Cart functionality
-class Cart {
-    constructor() {
-        this.items = JSON.parse(localStorage.getItem('cartItems')) || [];
-        this.updateCartCount();
-    }
-
-    addItem(product) {
-        const existingItem = this.items.find(item => item.id === product.id);
-        
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            this.items.push({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                image: product.image,
-                quantity: 1
-            });
-        }
-        
-        this.saveCart();
-        this.updateCartCount();
-    }
-
-    removeItem(productId) {
-        this.items = this.items.filter(item => item.id !== productId);
-        this.saveCart();
-        this.updateCartCount();
-        return this.items; // Return updated items array
-    }
-
-    updateQuantity(productId, quantity) {
-        const item = this.items.find(item => item.id === productId);
-        if (item) {
-            if (quantity <= 0) {
-                return this.removeItem(productId);
-            }
-            item.quantity = quantity;
-            this.saveCart();
-            this.updateCartCount();
-        }
-        return this.items; // Return updated items array
-    }
-
-    getTotal() {
-        return this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
-    }
-
-    saveCart() {
-        localStorage.setItem('cartItems', JSON.stringify(this.items));
-    }
-
-    updateCartCount() {
-        const cartCounts = document.querySelectorAll('.cart-count');
-        const totalItems = this.items.reduce((total, item) => total + item.quantity, 0);
-        
-        cartCounts.forEach(count => {
-            count.textContent = totalItems;
-        });
-    }
-
-    getItems() {
-        return this.items;
-    }
-
-    clearCart() {
-        this.items = [];
-        this.saveCart();
-        this.updateCartCount();
-    }
-}
-
-// Initialize cart
-const cart = new Cart();
-
-// Export cart instance
-window.cart = cart; 
 // Enhanced Cart Management System
 class ShoppingCart {
     constructor() {
@@ -123,7 +44,7 @@ class ShoppingCart {
         this.saveCart();
         this.updateCartCount();
         this.showNotification(`${product.name} added to cart!`);
-        
+
         // Trigger custom event for other components
         window.dispatchEvent(new CustomEvent('cartUpdated', { 
             detail: { action: 'add', product, quantity } 
@@ -134,10 +55,10 @@ class ShoppingCart {
         this.items = this.items.filter(item => 
             !(item.id == productId && JSON.stringify(item.variation) === JSON.stringify(variation))
         );
-        
+
         this.saveCart();
         this.updateCartCount();
-        
+
         window.dispatchEvent(new CustomEvent('cartUpdated', { 
             detail: { action: 'remove', productId } 
         }));
@@ -157,7 +78,7 @@ class ShoppingCart {
             this.items[itemIndex].quantity = newQuantity;
             this.saveCart();
             this.updateCartCount();
-            
+
             window.dispatchEvent(new CustomEvent('cartUpdated', { 
                 detail: { action: 'update', productId, newQuantity } 
             }));
@@ -179,7 +100,7 @@ class ShoppingCart {
     applyDiscount(code, discountValue) {
         this.discounts[code] = discountValue;
         localStorage.setItem('cartDiscounts', JSON.stringify(this.discounts));
-        
+
         window.dispatchEvent(new CustomEvent('cartUpdated', { 
             detail: { action: 'discount', code, discountValue } 
         }));
@@ -188,7 +109,7 @@ class ShoppingCart {
     removeDiscount(code) {
         delete this.discounts[code];
         localStorage.setItem('cartDiscounts', JSON.stringify(this.discounts));
-        
+
         window.dispatchEvent(new CustomEvent('cartUpdated', { 
             detail: { action: 'removeDiscount', code } 
         }));
@@ -203,7 +124,7 @@ class ShoppingCart {
         const discount = this.getTotalDiscount();
         const shipping = this.getShippingCost();
         const tax = this.getTaxAmount();
-        
+
         return Math.max(0, subtotal - discount + shipping + tax);
     }
 
@@ -223,7 +144,7 @@ class ShoppingCart {
         this.saveCart();
         localStorage.removeItem('cartDiscounts');
         this.updateCartCount();
-        
+
         window.dispatchEvent(new CustomEvent('cartUpdated', { 
             detail: { action: 'clear' } 
         }));
@@ -236,7 +157,7 @@ class ShoppingCart {
     updateCartCount() {
         const cartCountElements = document.querySelectorAll('.cart-count');
         const totalItems = this.getTotalItems();
-        
+
         cartCountElements.forEach(element => {
             element.textContent = totalItems;
             element.style.display = totalItems > 0 ? 'block' : 'none';
@@ -276,11 +197,11 @@ class ShoppingCart {
                     animation: slideIn 0.3s ease;
                     max-width: 300px;
                 }
-                
+
                 .cart-notification-error {
                     background-color: #dc3545;
                 }
-                
+
                 @keyframes slideIn {
                     from {
                         transform: translateX(100%);
@@ -291,7 +212,7 @@ class ShoppingCart {
                         opacity: 1;
                     }
                 }
-                
+
                 @keyframes slideOut {
                     from {
                         transform: translateX(0);
@@ -323,7 +244,7 @@ class ShoppingCart {
     toggleWishlist(productId) {
         let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
         const index = wishlist.indexOf(productId);
-        
+
         if (index > -1) {
             wishlist.splice(index, 1);
             this.showNotification('Removed from wishlist');
@@ -331,9 +252,9 @@ class ShoppingCart {
             wishlist.push(productId);
             this.showNotification('Added to wishlist');
         }
-        
+
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        
+
         // Update wishlist UI
         const wishlistButtons = document.querySelectorAll(`[data-product-id="${productId}"] .add-to-wishlist`);
         wishlistButtons.forEach(button => {
@@ -346,7 +267,7 @@ class ShoppingCart {
                 button.style.color = '';
             }
         });
-        
+
         window.dispatchEvent(new CustomEvent('wishlistUpdated', { 
             detail: { productId, added: wishlist.includes(productId) } 
         }));
@@ -365,7 +286,7 @@ class ShoppingCart {
         if (itemIndex > -1) {
             const item = this.items[itemIndex];
             let savedItems = JSON.parse(localStorage.getItem('savedItems')) || [];
-            
+
             // Check if already saved
             const alreadySaved = savedItems.some(saved => 
                 saved.id == productId && JSON.stringify(saved.variation) === JSON.stringify(variation)
@@ -394,10 +315,10 @@ class ShoppingCart {
         if (itemIndex > -1) {
             const item = savedItems[itemIndex];
             this.addItem(item, item.quantity, item.variation);
-            
+
             savedItems.splice(itemIndex, 1);
             localStorage.setItem('savedItems', JSON.stringify(savedItems));
-            
+
             this.showNotification('Item moved to cart');
         }
     }
@@ -419,7 +340,7 @@ class CouponManager {
 
     validateCoupon(code, orderTotal) {
         const coupon = this.coupons[code.toUpperCase()];
-        
+
         if (!coupon) {
             return { valid: false, message: 'Invalid coupon code' };
         }
@@ -436,13 +357,13 @@ class CouponManager {
 
     calculateDiscount(code, orderTotal) {
         const validation = this.validateCoupon(code, orderTotal);
-        
+
         if (!validation.valid) {
             return 0;
         }
 
         const coupon = validation.coupon;
-        
+
         switch (coupon.type) {
             case 'percentage':
                 return Math.round(orderTotal * (coupon.value / 100));

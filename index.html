@@ -17,45 +17,45 @@
             --text-color: #555;
             --white: #fff;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-        
+
         body {
             color: var(--text-color);
             line-height: 1.6;
             background-color: var(--white);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         h1, h2, h3, h4 {
             color: var(--dark-color);
             margin-bottom: 1rem;
             font-weight: 600;
         }
-        
+
         p {
             margin-bottom: 1rem;
         }
-        
+
         img {
             max-width: 100%;
             height: auto;
         }
-        
+
         .text-center {
             text-align: center;
         }
-        
+
         /* Button Styles */
         .btn {
             display: inline-block;
@@ -68,27 +68,27 @@
             border: none;
             text-decoration: none;
         }
-        
+
         .btn-primary {
             background-color: var(--primary-color);
             color: var(--white);
         }
-        
+
         .btn-primary:hover {
             background-color: var(--secondary-color);
         }
-        
+
         .btn-secondary {
             background-color: transparent;
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
         }
-        
+
         .btn-secondary:hover {
             background-color: var(--primary-color);
             color: var(--white);
         }
-        
+
         /* Header Styles */
         header {
             background-color: var(--white);
@@ -97,39 +97,39 @@
             top: 0;
             z-index: 100;
         }
-        
+
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
         }
-        
+
         .logo img {
             height: 40px;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 20px;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--dark-color);
             font-weight: 500;
             position: relative;
         }
-        
+
         .nav-links a.active {
             color: var(--primary-color);
         }
-        
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -140,29 +140,29 @@
             background-color: var(--primary-color);
             transition: width 0.3s ease;
         }
-        
+
         .nav-links a:hover::after,
         .nav-links a.active::after {
             width: 100%;
         }
-        
+
         .nav-icons {
             display: flex;
             gap: 15px;
             align-items: center;
         }
-        
+
         .nav-icons a {
             color: var(--dark-color);
             font-size: 18px;
             position: relative;
             transition: color 0.3s ease;
         }
-        
+
         .nav-icons a:hover {
             color: var(--primary-color);
         }
-        
+
         .cart-count {
             position: absolute;
             top: -10px;
@@ -177,7 +177,7 @@
             align-items: center;
             font-size: 12px;
         }
-        
+
         .mobile-menu {
             display: none;
             background: none;
@@ -186,7 +186,7 @@
             cursor: pointer;
             color: var(--dark-color);
         }
-        
+
         /* Hero Section */
         .hero {
             height: 80vh;
@@ -198,34 +198,34 @@
             color: var(--white);
             margin-top: 70px;
         }
-        
+
         .hero .container {
             max-width: 600px;
         }
-        
+
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
             color: var(--white);
         }
-        
+
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
         }
-        
+
         /* Categories Section */
         .categories {
             padding: 80px 0;
         }
-        
+
         .categories h2 {
             text-align: center;
             font-size: 2rem;
             margin-bottom: 40px;
             position: relative;
         }
-        
+
         .categories h2::after {
             content: '';
             position: absolute;
@@ -236,27 +236,27 @@
             height: 3px;
             background-color: var(--primary-color);
         }
-        
+
         .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-        
+
         .category-card {
             position: relative;
             border-radius: 8px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .category-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .category-card h3 {
             position: absolute;
             bottom: 0;
@@ -268,28 +268,28 @@
             margin: 0;
             text-align: center;
         }
-        
+
         .category-card:hover {
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        
+
         .category-card:hover img {
             transform: scale(1.05);
         }
-        
+
         /* Featured Products */
         .featured-products {
             padding: 80px 0;
             background-color: var(--light-color);
         }
-        
+
         .featured-products h2 {
             text-align: center;
             font-size: 2rem;
             margin-bottom: 40px;
             position: relative;
         }
-        
+
         .featured-products h2::after {
             content: '';
             position: absolute;
@@ -300,14 +300,14 @@
             height: 3px;
             background-color: var(--primary-color);
         }
-        
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
-        
+
         .product-card {
             background-color: var(--white);
             border-radius: 8px;
@@ -315,28 +315,28 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
-        
+
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        
+
         .product-image {
             position: relative;
             overflow: hidden;
         }
-        
+
         .product-image img {
             width: 100%;
             height: 200px;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .product-card:hover .product-image img {
             transform: scale(1.05);
         }
-        
+
         .product-actions {
             position: absolute;
             top: 10px;
@@ -346,11 +346,11 @@
             opacity: 0;
             transition: all 0.3s ease;
         }
-        
+
         .product-card:hover .product-actions {
             opacity: 1;
         }
-        
+
         .product-actions button {
             width: 36px;
             height: 36px;
@@ -366,38 +366,38 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
-        
+
         .product-actions button:hover {
             background-color: var(--primary-color);
             color: var(--white);
         }
-        
+
         .product-info {
             padding: 20px;
         }
-        
+
         .product-info h3 {
             font-size: 1.1rem;
             margin-bottom: 10px;
         }
-        
+
         .product-price {
             margin-bottom: 15px;
         }
-        
+
         .current-price {
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary-color);
         }
-        
+
         .original-price {
             font-size: 1rem;
             color: var(--text-color);
             text-decoration: line-through;
             margin-left: 8px;
         }
-        
+
         .add-to-cart {
             width: 100%;
             padding: 10px;
@@ -409,23 +409,23 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        
+
         .add-to-cart:hover {
             background-color: var(--secondary-color);
         }
-        
+
         /* Why Choose Us */
         .why-choose-us {
             padding: 80px 0;
         }
-        
+
         .why-choose-us h2 {
             text-align: center;
             font-size: 2rem;
             margin-bottom: 50px;
             position: relative;
         }
-        
+
         .why-choose-us h2::after {
             content: '';
             position: absolute;
@@ -436,13 +436,13 @@
             height: 3px;
             background-color: var(--primary-color);
         }
-        
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-        
+
         .feature-card {
             text-align: center;
             padding: 30px 20px;
@@ -451,36 +451,36 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
-        
+
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        
+
         .feature-card i {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
-        
+
         .feature-card h3 {
             font-size: 1.2rem;
             margin-bottom: 15px;
         }
-        
+
         /* Testimonials */
         .testimonials {
             padding: 80px 0;
             background-color: var(--light-color);
         }
-        
+
         .testimonials h2 {
             text-align: center;
             font-size: 2rem;
             margin-bottom: 50px;
             position: relative;
         }
-        
+
         .testimonials h2::after {
             content: '';
             position: absolute;
@@ -491,12 +491,12 @@
             height: 3px;
             background-color: var(--primary-color);
         }
-        
+
         .testimonials-slider {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .testimonial {
             background-color: var(--white);
             padding: 30px;
@@ -504,14 +504,14 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
         }
-        
+
         .testimonial-content p {
             font-size: 1.1rem;
             font-style: italic;
             margin-bottom: 20px;
             position: relative;
         }
-        
+
         .testimonial-content p::before,
         .testimonial-content p::after {
             content: '"';
@@ -519,32 +519,32 @@
             color: var(--primary-color);
             opacity: 0.3;
         }
-        
+
         .testimonial-author {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
         }
-        
+
         .testimonial-author img {
             width: 60px;
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
         }
-        
+
         .author-info h4 {
             margin-bottom: 5px;
             text-align: left;
         }
-        
+
         .author-info p {
             color: var(--text-color);
             font-size: 0.9rem;
             text-align: left;
         }
-        
+
         /* Newsletter */
         .newsletter {
             padding: 80px 0;
@@ -552,25 +552,25 @@
             color: var(--white);
             text-align: center;
         }
-        
+
         .newsletter h2 {
             font-size: 2rem;
             margin-bottom: 20px;
             color: var(--white);
         }
-        
+
         .newsletter p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 30px;
         }
-        
+
         .newsletter-form {
             display: flex;
             max-width: 500px;
             margin: 0 auto;
         }
-        
+
         .newsletter-form input {
             flex: 1;
             padding: 15px;
@@ -578,12 +578,12 @@
             border-radius: 4px 0 0 4px;
             font-size: 1rem;
         }
-        
+
         .newsletter-form button {
             border-radius: 0 4px 4px 0;
             padding: 15px 25px;
         }
-        
+
         /* WhatsApp Chat */
         .whatsapp-chat {
             position: fixed;
@@ -591,7 +591,7 @@
             right: 30px;
             z-index: 99;
         }
-        
+
         .whatsapp-chat img {
             width: 60px;
             height: 60px;
@@ -599,31 +599,31 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
         }
-        
+
         .whatsapp-chat img:hover {
             transform: scale(1.1);
         }
-        
+
         /* Footer */
         footer {
             background-color: var(--dark-color);
             color: var(--white);
             padding: 60px 0 20px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-section h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
             color: var(--white);
         }
-        
+
         .footer-section p, .footer-section a {
             color: #bbb;
             margin-bottom: 10px;
@@ -631,26 +631,26 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .footer-section a:hover {
             color: var(--primary-color);
         }
-        
+
         .footer-section .social-links {
             display: flex;
             gap: 15px;
         }
-        
+
         .footer-section .social-links a {
             font-size: 1.2rem;
             color: #bbb;
             transition: color 0.3s ease;
         }
-        
+
         .footer-section .social-links a:hover {
             color: var(--primary-color);
         }
-        
+
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
@@ -658,13 +658,13 @@
             color: #bbb;
             font-size: 0.9rem;
         }
-        
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
             }
-            
+
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -676,38 +676,38 @@
                 padding: 20px;
                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
-            
+
             .nav-links.active {
                 display: flex;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero p {
                 font-size: 1rem;
             }
-            
+
             .newsletter-form {
                 flex-direction: column;
             }
-            
+
             .newsletter-form input {
                 border-radius: 4px;
                 margin-bottom: 10px;
             }
-            
+
             .newsletter-form button {
                 border-radius: 4px;
             }
         }
-        
+
         @media (max-width: 576px) {
             .hero h1 {
                 font-size: 2rem;
             }
-            
+
             .hero {
                 height: 60vh;
             }
@@ -969,182 +969,8 @@
     </footer>
 
     <script src="js/cart.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-
-            // Observe elements for scroll animations
-            document.querySelectorAll('.scroll-animate').forEach(el => {
-                observer.observe(el);
-            });
-
-            // Header scroll effect
-            const header = document.querySelector('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // Add scroll animation classes to elements
-            document.querySelectorAll('.category-card, .product-card, .feature-card').forEach((el, index) => {
-                el.classList.add('scroll-animate');
-                el.style.animationDelay = `${index * 0.1}s`;
-            });
-
-            // Add to cart functionality with animation
-            const addToCartButtons = document.querySelectorAll('.add-to-cart');
-            
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Add loading state
-                    const originalText = this.textContent;
-                    this.textContent = 'Adding...';
-                    this.style.background = 'var(--success-color)';
-                    
-                    const productCard = this.closest('.product-card');
-                    const product = {
-                        id: productCard.dataset.id,
-                        name: productCard.querySelector('h3').textContent,
-                        price: parseFloat(productCard.querySelector('.current-price').textContent.replace('₹', '')),
-                        image: productCard.querySelector('.product-image img').src
-                    };
-                    
-                    // Simulate async operation
-                    setTimeout(() => {
-                        cart.addItem(product);
-                        this.textContent = 'Added!';
-                        
-                        // Show success notification
-                        showNotification(`${product.name} added to cart!`, 'success');
-                        
-                        // Reset button after delay
-                        setTimeout(() => {
-                            this.textContent = originalText;
-                            this.style.background = '';
-                        }, 1500);
-                    }, 500);
-                });
-            });
-
-            // Mobile menu toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
-            
-            // Enhanced testimonial slider
-            const testimonials = [
-                {
-                    quote: "The quality of spices from Deli Spi is exceptional. I can really taste the difference in my cooking compared to store-bought spices. Their turmeric has such vibrant color and aroma!",
-                    name: "Sarah K.",
-                    role: "Regular Customer",
-                    image: "images/testimonial-1.jpg"
-                },
-                {
-                    quote: "As a professional chef, I demand the best ingredients. Deli Spi consistently delivers premium quality spices that elevate my dishes. Their customer service is outstanding too.",
-                    name: "Raj M.",
-                    role: "Executive Chef",
-                    image: "images/testimonial-2.jpg"
-                },
-                {
-                    quote: "I've been using Deli Spi products for my home cooking for years. The flavors are so much more vibrant than anything else I've tried. Their cinnamon is particularly amazing!",
-                    name: "Priya N.",
-                    role: "Home Cook",
-                    image: "images/testimonial-3.jpg"
-                }
-            ];
-            
-            const testimonialContainer = document.querySelector('.testimonial-content');
-            let currentTestimonial = 0;
-            
-            function showTestimonial(index) {
-                const testimonial = testimonials[index];
-                testimonialContainer.style.opacity = '0';
-                testimonialContainer.style.transform = 'translateY(20px)';
-                
-                setTimeout(() => {
-                    testimonialContainer.innerHTML = `
-                        <p>${testimonial.quote}</p>
-                        <div class="testimonial-author">
-                            <img src="${testimonial.image}" alt="${testimonial.name}">
-                            <div class="author-info">
-                                <h4>${testimonial.name}</h4>
-                                <p>${testimonial.role}</p>
-                            </div>
-                        </div>
-                    `;
-                    
-                    testimonialContainer.style.opacity = '1';
-                    testimonialContainer.style.transform = 'translateY(0)';
-                }, 300);
-            }
-            
-            // Rotate testimonials every 5 seconds
-            showTestimonial(currentTestimonial);
-            setInterval(() => {
-                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-                showTestimonial(currentTestimonial);
-            }, 5000);
-
-            // Notification system
-            function showNotification(message, type = 'info') {
-                const notification = document.createElement('div');
-                notification.className = `notification notification-${type}`;
-                notification.innerHTML = `
-                    <div class="notification-content">
-                        <span>${message}</span>
-                        <button class="notification-close">&times;</button>
-                    </div>
-                `;
-                
-                document.body.appendChild(notification);
-                
-                // Animate in
-                setTimeout(() => notification.classList.add('show'), 100);
-                
-                // Auto remove
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                    setTimeout(() => notification.remove(), 300);
-                }, 3000);
-                
-                // Manual close
-                notification.querySelector('.notification-close').addEventListener('click', () => {
-                    notification.classList.remove('show');
-                    setTimeout(() => notification.remove(), 300);
-                });
-            }
-
-            // Add hover effects to interactive elements
-            document.querySelectorAll('.product-card, .category-card, .feature-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-8px) scale(1.02)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = '';
-                });
-            });
-        });
-    </script>
+    <script src="api.js"></script>
+    <script src="auth-modal.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

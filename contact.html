@@ -19,41 +19,41 @@
             --gray: #eee;
             --dark-gray: #777;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-        
+
         body {
             color: var(--text-color);
             line-height: 1.6;
             background-color: var(--white);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         h1, h2, h3, h4 {
             color: var(--dark-color);
             margin-bottom: 1rem;
             font-weight: 600;
         }
-        
+
         p {
             margin-bottom: 1rem;
         }
-        
+
         img {
             max-width: 100%;
             height: auto;
         }
-        
+
         /* Header Styles */
         header {
             background-color: var(--white);
@@ -62,54 +62,54 @@
             top: 0;
             z-index: 100;
         }
-        
+
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
         }
-        
+
         .logo img {
             height: 40px;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 20px;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--dark-color);
             font-weight: 500;
             transition: color 0.3s ease;
         }
-        
+
         .nav-links a.active {
             color: var(--primary-color);
         }
-        
+
         .nav-links a:hover {
             color: var(--primary-color);
         }
-        
+
         .nav-icons {
             display: flex;
             gap: 15px;
             align-items: center;
         }
-        
+
         .nav-icons a {
             color: var(--dark-color);
             font-size: 18px;
             transition: color 0.3s ease;
         }
-        
+
         .nav-icons a:hover {
             color: var(--primary-color);
         }
-        
+
         .mobile-menu {
             display: none;
             background: none;
@@ -118,7 +118,7 @@
             cursor: pointer;
             color: var(--dark-color);
         }
-        
+
         /* Hero Section */
         .contact-hero {
             height: 300px;
@@ -129,42 +129,42 @@
             color: var(--white);
             margin-bottom: 60px;
         }
-        
+
         .contact-hero h1 {
             font-size: 3rem;
             margin-bottom: 15px;
             color: var(--white);
         }
-        
+
         .contact-hero p {
             font-size: 1.2rem;
             opacity: 0.9;
         }
-        
+
         /* Contact Content */
         .contact-content {
             padding: 60px 0;
         }
-        
+
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
-        
+
         .contact-info {
             padding: 30px;
             background-color: var(--light-color);
             border-radius: 8px;
         }
-        
+
         .contact-info h2 {
             font-size: 1.8rem;
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .contact-info h2::after {
             content: '';
             position: absolute;
@@ -174,42 +174,42 @@
             height: 3px;
             background-color: var(--primary-color);
         }
-        
+
         .contact-info p {
             margin-bottom: 30px;
         }
-        
+
         .info-item {
             display: flex;
             gap: 15px;
             margin-bottom: 25px;
         }
-        
+
         .info-item i {
             font-size: 1.5rem;
             color: var(--primary-color);
             margin-top: 5px;
         }
-        
+
         .info-item h3 {
             font-size: 1.1rem;
             margin-bottom: 5px;
         }
-        
+
         .social-links {
             margin-top: 40px;
         }
-        
+
         .social-links h3 {
             font-size: 1.1rem;
             margin-bottom: 15px;
         }
-        
+
         .social-icons {
             display: flex;
             gap: 15px;
         }
-        
+
         .social-icons a {
             width: 40px;
             height: 40px;
@@ -222,11 +222,11 @@
             font-size: 1.2rem;
             transition: background-color 0.3s ease;
         }
-        
+
         .social-icons a:hover {
             background-color: var(--primary-color);
         }
-        
+
         /* Contact Form */
         .contact-form {
             padding: 30px;
@@ -234,14 +234,14 @@
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
-        
+
         .contact-form h2 {
             font-size: 1.8rem;
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .contact-form h2::after {
             content: '';
             position: absolute;
@@ -251,17 +251,17 @@
             height: 3px;
             background-color: var(--primary-color);
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
         }
-        
+
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -271,18 +271,18 @@
             font-size: 1rem;
             transition: border-color 0.3s ease;
         }
-        
+
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-color);
         }
-        
+
         .form-group textarea {
             resize: vertical;
             min-height: 150px;
         }
-        
+
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -296,52 +296,52 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        
+
         .btn:hover {
             background-color: var(--secondary-color);
         }
-        
+
         /* Map Section */
         .map-section {
             padding: 60px 0;
             background-color: var(--light-color);
         }
-        
+
         .map-section h2 {
             text-align: center;
             font-size: 2rem;
             margin-bottom: 40px;
         }
-        
+
         .map-container {
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
-        
+
         .map-container iframe {
             display: block;
             width: 100%;
             border: none;
         }
-        
+
         /* FAQ Section */
         .faq-section {
             padding: 80px 0;
         }
-        
+
         .faq-section h2 {
             text-align: center;
             font-size: 2rem;
             margin-bottom: 50px;
         }
-        
+
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .faq-item {
             background-color: var(--white);
             padding: 25px;
@@ -349,17 +349,17 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
         }
-        
+
         .faq-item:hover {
             transform: translateY(-5px);
         }
-        
+
         .faq-item h3 {
             font-size: 1.2rem;
             margin-bottom: 15px;
             color: var(--primary-color);
         }
-        
+
         /* WhatsApp Chat */
         .whatsapp-chat {
             position: fixed;
@@ -367,7 +367,7 @@
             right: 30px;
             z-index: 99;
         }
-        
+
         .whatsapp-chat img {
             width: 60px;
             height: 60px;
@@ -375,31 +375,31 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
         }
-        
+
         .whatsapp-chat img:hover {
             transform: scale(1.1);
         }
-        
+
         /* Footer */
         footer {
             background-color: var(--dark-color);
             color: var(--white);
             padding: 60px 0 20px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-section h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
             color: var(--white);
         }
-        
+
         .footer-section p, .footer-section a {
             color: #bbb;
             margin-bottom: 10px;
@@ -407,26 +407,26 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .footer-section a:hover {
             color: var(--primary-color);
         }
-        
+
         .footer-section .social-links {
             display: flex;
             gap: 15px;
         }
-        
+
         .footer-section .social-links a {
             font-size: 1.2rem;
             color: #bbb;
             transition: color 0.3s ease;
         }
-        
+
         .footer-section .social-links a:hover {
             color: var(--primary-color);
         }
-        
+
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
@@ -434,23 +434,23 @@
             color: #bbb;
             font-size: 0.9rem;
         }
-        
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .contact-info {
                 order: 1;
             }
         }
-        
+
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
             }
-            
+
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -462,25 +462,25 @@
                 padding: 20px;
                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
-            
+
             .nav-links.active {
                 display: flex;
             }
-            
+
             .contact-hero h1 {
                 font-size: 2.5rem;
             }
         }
-        
+
         @media (max-width: 576px) {
             .contact-hero h1 {
                 font-size: 2rem;
             }
-            
+
             .contact-hero p {
                 font-size: 1rem;
             }
-            
+
             .info-item {
                 flex-direction: column;
                 gap: 5px;
@@ -526,7 +526,7 @@
                 <div class="contact-info">
                     <h2>Get in Touch</h2>
                     <p>Have questions about our products or need assistance with your order? Our team is here to help you with any inquiries you may have about our premium spices.</p>
-                    
+
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
@@ -534,7 +534,7 @@
                             <p>123 Spice Street<br>Mumbai, Maharashtra 400001<br>India</p>
                         </div>
                     </div>
-                    
+
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
                         <div>
@@ -543,7 +543,7 @@
                             <p>+91 987 654 3210</p>
                         </div>
                     </div>
-                    
+
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
                         <div>
@@ -552,7 +552,7 @@
                             <p>support@delispi.com</p>
                         </div>
                     </div>
-                    
+
                     <div class="info-item">
                         <i class="fas fa-clock"></i>
                         <div>
@@ -560,7 +560,7 @@
                             <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
                         </div>
                     </div>
-                    
+
                     <div class="social-links">
                         <h3>Connect With Us</h3>
                         <div class="social-icons">
@@ -571,7 +571,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="contact-form">
                     <h2>Send us a Message</h2>
                     <form id="contactForm">
@@ -579,27 +579,27 @@
                             <label for="name">Your Name *</label>
                             <input type="text" id="name" name="name" required placeholder="Enter your full name">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" required placeholder="Enter your email address">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="subject">Subject *</label>
                             <input type="text" id="subject" name="subject" required placeholder="What's your message about?">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="message">Your Message *</label>
                             <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
                         </div>
-                        
+
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
@@ -634,27 +634,27 @@
                     <h3>What are your shipping policies?</h3>
                     <p>We offer free shipping on all orders above ₹500 within India. Standard delivery takes 3-5 business days, while express delivery (available for an additional charge) delivers in 1-2 business days. International shipping rates and times vary by destination.</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>How can I track my order?</h3>
                     <p>Once your order is processed and shipped, you'll receive an email with your tracking number and a link to track your package. You can also log in to your account on our website to view your order status and tracking information.</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>What is your return policy?</h3>
                     <p>We accept returns within 15 days of delivery for unopened products in their original packaging. For quality concerns, please contact us within 7 days of receiving your order. We'll provide a return label and process your refund once we receive the returned items.</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>Do you offer wholesale prices?</h3>
                     <p>Yes, we offer special wholesale pricing for restaurants, retailers, and bulk purchasers. Our wholesale program includes discounts based on order volume and flexible payment terms. Contact our sales team at wholesale@delispi.com for more information and to set up a wholesale account.</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>Are your spices organic?</h3>
                     <p>Many of our spices are certified organic, and we clearly label them as such on our website and packaging. We also offer conventional options. All our products, whether organic or conventional, meet our strict quality standards for purity and flavor.</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>How should I store my spices?</h3>
                     <p>For maximum freshness, store spices in airtight containers in a cool, dark place away from heat and moisture. Whole spices maintain their flavor for about 4 years, ground spices for 2-3 years. Our packaging is designed to preserve freshness, but transferring to glass containers after opening can extend shelf life.</p>
@@ -702,40 +702,63 @@
         </div>
     </footer>
 
+    <script src="js/cart.js"></script>
+    <script src="api.js"></script>
+    <script src="auth-modal.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu toggle
             const mobileMenuBtn = document.querySelector('.mobile-menu');
             const navLinks = document.querySelector('.nav-links');
-            
+
             mobileMenuBtn.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
             });
-            
+
             // Form submission
             const contactForm = document.getElementById('contactForm');
-            
-            contactForm.addEventListener('submit', function(e) {
+
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
+
                 // Get form values
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const subject = document.getElementById('subject').value;
-                
-                // In a real implementation, you would send this data to your server
-                console.log('Form submitted:', { name, email, subject });
-                
-                // Show success message
-                alert(`Thank you, ${name}! Your message has been sent. We'll get back to you soon at ${email}.`);
-                
-                // Reset form
-                contactForm.reset();
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value
+                };
+
+                try {
+                    const submitBtn = e.target.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+
+                    await api.submitContactForm(formData);
+
+                    // Show success message
+                    alert(`Thank you, ${formData.name}! Your message has been sent. We'll get back to you soon at ${formData.email}.`);
+
+                    // Reset form
+                    contactForm.reset();
+
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                } catch (error) {
+                    alert('Error sending message. Please try again.');
+                    console.error('Contact form error:', error);
+
+                    const submitBtn = e.target.querySelector('button[type="submit"]');
+                    submitBtn.textContent = 'Send Message';
+                    submitBtn.disabled = false;
+                }
             });
-            
+
             // FAQ accordion functionality
             const faqItems = document.querySelectorAll('.faq-item h3');
-            
+
             faqItems.forEach(item => {
                 item.addEventListener('click', function() {
                     const content = this.nextElementSibling;
